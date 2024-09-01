@@ -8,3 +8,7 @@ function getComputerChoice() {
         return "Paper";
     } return "Scissors";
 }
+
+function getHumanChoice() {
+    let human = prompt("First to 3 - Rock, paper or scissors?")
+}
