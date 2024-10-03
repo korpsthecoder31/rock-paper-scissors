@@ -1,0 +1,41 @@
+#main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Press Start 2P";
+    text-align: center;
+    background-color: rgb(121, 170, 109);
+    color: rgb(34,111,95);
+}
+
+#title {
+    padding: 32px 0px;
+}
+
+#subTitle {
+    font-size: 18px;
+}
+
+#scoreBox {
+    border: solid 3px rgb(34,111,95);
+    margin: 0px auto 24px;
+    width: 25%;
+    border-radius: 4px;
+}
+
+#scoreCounter {
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+}
+
+#gameBox {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.test {
+    background-color: red;
+    border: 5px solid black;
+}

@@ -1,3 +1,5 @@
+const main = document.querySelector("#main")
+
 // Function that generates computer choice as either rock, paper or scissors
 
 function getComputerChoice() {
@@ -33,12 +35,12 @@ const description = document.querySelector("#descriptionBox")
 
 let humanScore = 0;
 let computerScore = 0;
-let currentRound = 1;
+let roundsRemaining = 12;
 
 const roundCard = document.querySelector("#roundCard")
 const humanScoreCard = document.querySelector("#humanScoreCard")
 const computerScoreCard = document.querySelector("#computerScoreCard")
-roundCard.textContent = `${currentRound}`
+roundCard.textContent = `${roundsRemaining}`
 humanScoreCard.textContent = `${humanScore}`
 computerScoreCard.textContent = `${computerScore}`
 
@@ -62,18 +64,52 @@ function playRound(humanChoice, computerChoice) {
     
     else description.textContent = `It's a tie! Computer also chose ${computerChoice}.`
 
-    currentRound = currentRound + 1;
+    roundsRemaining = roundsRemaining - 1;
 
-    roundCard.textContent = `${currentRound}`
+    roundCard.textContent = `${roundsRemaining}`
     humanScoreCard.textContent = `${humanScore}`
     computerScoreCard.textContent = `${computerScore}`
 
-    if (currentRound === 10) {
-        if (humanScore > computerScore) {
-            alert(`CONGRATULAIONS! YOU WIN!`)
-        } else if (humanScore === computerScore) {
-            alert('EVEN SCORE! TIE GAME.')
-        } else alert("GAME OVER. YOU LOSE.")
+    if (roundsRemaining === 0) {
+        gameOverAlert();
     }
       
 }
+
+// GAME OVER ALERT //
+
+
+
+function gameOverAlert() {
+    const gameOverBox = document.createElement("div")
+    gameOverBox.setAttribute("class", "test")
+
+    const resetButton = document.createElement("button")
+    
+    if (humanScore > computerScore) {
+        gameOverBox.textContent = "CONGRATULAIONS! YOU WIN!"
+    } else if (humanScore === computerScore) {
+            gameOverBox.textContent = "EVEN SCORE! TIE GAME."
+    } else gameOverBox.textContent = "GAME OVER. YOU LOSE."
+
+    resetButton.textContent = "Play again?"
+
+    gameOverBox.appendChild(resetButton)
+    main.appendChild(gameOverBox)
+
+    resetButton.addEventListener("click", resetGame)
+    resetButton.addEventListener("click", () =>
+        gameOverBox.remove()
+    )
+}
+
+function resetGame() {
+    humanScore = 0
+    computerScore = 0
+    roundsRemaining = 12
+    roundCard.textContent = `${roundsRemaining}`
+    humanScoreCard.textContent = `${humanScore}`
+    computerScoreCard.textContent = `${computerScore}`
+    description.textContent = "Test"
+}
+

@@ -4,19 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>Rock, Paper, Scissors</h1>
-    <p>Current Round: <span id="roundCard"></span></p>
-    <h2>SCORE</h2>
-    <p>Human: <span id="humanScoreCard"></span></p>
-    <p>Computer: <span id="computerScoreCard"></span></p>
+<body id="main">
+    <div id="title">
+        <h1>Rock, Paper, Scissors</h1>
+        <p id="subTitle">12 rounds! Highest score wins.</p>
+    </div>
+    <div id="scoreBox">
+        <p>SCORE</p>
+        <div id="scoreCounter">
+            <p>Human: <span id="humanScoreCard"></span></p>
+            <p>Computer: <span id="computerScoreCard"></span></p>
+        </div>    
+        <div>
+            <p id="roundTitle">Rounds remaining: <span id="roundCard"></span></p>
+        </div>
+    </div>
+    <div id="gameBox">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <p id="descriptionBox">Test</p>
     <div>
         <button id="rockButton">Rock</button>
         <button id="paperButton">Paper</button>
         <button id="scissorsButton">Scissors</button>
     </div>
-    <p id="descriptionBox"></p>
     <script src="./script.js">
         // Rock-Paper-Scissors 
     </script>
