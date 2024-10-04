@@ -5,15 +5,21 @@ const main = document.querySelector("#main")
 function getComputerChoice() {
     let computer = Math.floor(Math.random() * 3)
     if (computer === 0) {
+        computerResult.textContent = "✊"
         return "rock";
     } else if (computer === 1) {
+        computerResult.textContent = "✋"
         return "paper";
-    } return "scissors";
+    } else computerResult.textContent = "✌️"
+        return "scissors";
 }
 
 const rockChoice = document.querySelector("#rockButton")
 const paperChoice = document.querySelector("#paperButton")
 const scissorsChoice = document.querySelector("#scissorsButton")
+
+const humanResult = document.querySelector("#humanResult")
+const computerResult = document.querySelector("#computerResult")
 
 rockChoice.addEventListener("click", () =>
     playRound("rock", getComputerChoice())
@@ -24,6 +30,17 @@ paperChoice.addEventListener("click", () =>
 scissorsChoice.addEventListener("click", () =>
     playRound("scissors", getComputerChoice())
 )
+
+rockChoice.addEventListener("click", () =>
+    humanResult.textContent = "✊"
+)
+paperChoice.addEventListener("click", () =>
+    humanResult.textContent = "✋"
+)
+scissorsChoice.addEventListener("click", () =>
+    humanResult.textContent = "✌️"
+)
+
 
 const description = document.querySelector("#descriptionBox")
 
@@ -110,6 +127,10 @@ function resetGame() {
     roundCard.textContent = `${roundsRemaining}`
     humanScoreCard.textContent = `${humanScore}`
     computerScoreCard.textContent = `${computerScore}`
-    description.textContent = "Test"
+    description.textContent = "Choose wisely..."
+    humanResult.textContent = "❔"
+    computerResult.textContent = "❔"
 }
 
+
+// ✊ ✋ ✌️

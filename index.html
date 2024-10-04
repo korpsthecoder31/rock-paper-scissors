@@ -15,25 +15,33 @@
         <p id="subTitle">12 rounds! Highest score wins.</p>
     </div>
     <div id="scoreBox">
-        <p>SCORE</p>
+        <p>SCORE CARD</p>
         <div id="scoreCounter">
-            <p>Human: <span id="humanScoreCard"></span></p>
+            <p>Player: <span id="humanScoreCard"></span></p>
             <p>Computer: <span id="computerScoreCard"></span></p>
         </div>    
         <div>
             <p id="roundTitle">Rounds remaining: <span id="roundCard"></span></p>
         </div>
     </div>
-    <div id="gameBox">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+    <div id="userBox">
+        <div class="userIcon">🤓</div>
+        <div class="userIcon">💻</div>
     </div>
-    <p id="descriptionBox">Test</p>
-    <div>
-        <button id="rockButton">Rock</button>
-        <button id="paperButton">Paper</button>
-        <button id="scissorsButton">Scissors</button>
+    <div id="gameBox">
+        <div class="choiceContainer">
+            <div class="choiceBox" id="humanResult">❔</div>
+        </div>
+        <div>vs</div>
+        <div class="choiceContainer">
+            <div class="choiceBox" id="computerResult">❔</div>
+        </div>
+    </div>
+    <p id="descriptionBox">Choose wisely...</p>
+    <div id="buttonBox">
+        <button class="button" id="rockButton">✊</button>
+        <button class="button" id="paperButton">✋</button>
+        <button class="button" id="scissorsButton">✌️</button>
     </div>
     <script src="./script.js">
         // Rock-Paper-Scissors 

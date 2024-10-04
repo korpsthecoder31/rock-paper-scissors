@@ -19,7 +19,7 @@
 #scoreBox {
     border: solid 3px rgb(34,111,95);
     margin: 0px auto 24px;
-    width: 25%;
+    width: 450px;
     border-radius: 4px;
 }
 
@@ -32,7 +32,51 @@
 #gameBox {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    align-items: center;
+    height: 96px;
+    gap: 48px;
+}
+
+.choiceContainer {
+    display: flex;
+    align-items: center;
+    border: solid 1px rgb(34,111,95);
+    height: 100%;
+}
+
+.choiceBox {
+    width: 96px;
+    font-size: 36px;
+}
+
+#userBox {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-bottom: 6px;
+}
+
+.userIcon {
+    font-size: 24px;
+}
+
+#descriptionBox {
+    margin: 36px auto 36px;
+}
+
+#buttonBox {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.button {
+    font-size: 50px;
+    color: rgb(34,111,95);
+    background-color: rgb(121, 170, 109);
+    border: solid 1px rgb(34,111,95);
+    width: 64px;
+    cursor: pointer;
 }
 
 .test {
