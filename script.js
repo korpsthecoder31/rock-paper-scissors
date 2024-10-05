@@ -1,6 +1,6 @@
 const main = document.querySelector("#main")
 
-// Function that generates computer choice as either rock, paper or scissors
+// FUNCTION that generates computer choice as either rock, paper or scissors
 
 function getComputerChoice() {
     let computer = Math.floor(Math.random() * 3)
@@ -14,6 +14,8 @@ function getComputerChoice() {
         return "scissors";
 }
 
+// Event listeners that uses BUTTONS to get rock, paper, scissor input from user
+
 const rockChoice = document.querySelector("#rockButton")
 const paperChoice = document.querySelector("#paperButton")
 const scissorsChoice = document.querySelector("#scissorsButton")
@@ -21,31 +23,21 @@ const scissorsChoice = document.querySelector("#scissorsButton")
 const humanResult = document.querySelector("#humanResult")
 const computerResult = document.querySelector("#computerResult")
 
-rockChoice.addEventListener("click", () =>
-    playRound("rock", getComputerChoice())
-)
-paperChoice.addEventListener("click", () =>
-    playRound("paper", getComputerChoice())
-)
-scissorsChoice.addEventListener("click", () =>
-    playRound("scissors", getComputerChoice())
-)
-
-rockChoice.addEventListener("click", () =>
+rockChoice.addEventListener("click", () => { 
     humanResult.textContent = "✊"
-)
-paperChoice.addEventListener("click", () =>
+    playRound("rock", getComputerChoice())
+})
+
+paperChoice.addEventListener("click", () => { 
     humanResult.textContent = "✋"
-)
-scissorsChoice.addEventListener("click", () =>
+    playRound("paper", getComputerChoice())
+})
+
+scissorsChoice.addEventListener("click", () => {
     humanResult.textContent = "✌️"
-)
+    playRound("scissors", getComputerChoice())
+})
 
-
-const description = document.querySelector("#descriptionBox")
-
-
-// Function that uses prompt to get rock, paper, scissor input from user
 
 
 // defined variables to determine score and current round
@@ -54,14 +46,20 @@ let humanScore = 0;
 let computerScore = 0;
 let roundsRemaining = 12;
 
+
+// defined variables to modify current information of the game (round, score & result)
+
 const roundCard = document.querySelector("#roundCard")
 const humanScoreCard = document.querySelector("#humanScoreCard")
 const computerScoreCard = document.querySelector("#computerScoreCard")
+const description = document.querySelector("#descriptionBox")
+
+
 roundCard.textContent = `${roundsRemaining}`
 humanScoreCard.textContent = `${humanScore}`
 computerScoreCard.textContent = `${computerScore}`
 
-// rock-paper-scissor game that takes round parameter and runs playRound recursively. Round, result and scores are logged into console. Game result is looged into console after 5 rounds.
+// FUNCTION that plays rock-paper-scissor game comparing USER INPUT and COMPUTER CHOICE. Updates information per ROUND
 
 function playRound(humanChoice, computerChoice) {
 
@@ -93,32 +91,35 @@ function playRound(humanChoice, computerChoice) {
       
 }
 
-// GAME OVER ALERT //
-
-
+// FUNCTION that shows modal reflecting game result. RESET BUTTON appended to restart game
 
 function gameOverAlert() {
-    const gameOverBox = document.createElement("div")
-    gameOverBox.setAttribute("class", "test")
+    const gameOverBox = document.createElement("dialog")
+
+    const gameOverText = document.createElement("div")
 
     const resetButton = document.createElement("button")
+    resetButton.textContent = "Play again?"
     
     if (humanScore > computerScore) {
-        gameOverBox.textContent = "CONGRATULAIONS! YOU WIN!"
+        gameOverText.textContent = "CONGRATULATIONS! YOU WIN!"
     } else if (humanScore === computerScore) {
-            gameOverBox.textContent = "EVEN SCORE! TIE GAME."
-    } else gameOverBox.textContent = "GAME OVER. YOU LOSE."
+            gameOverText.textContent = "EVEN SCORE! TIE GAME."
+    } else gameOverText.textContent = "GAME OVER. YOU LOSE."
 
-    resetButton.textContent = "Play again?"
-
+    gameOverBox.appendChild(gameOverText)
     gameOverBox.appendChild(resetButton)
     main.appendChild(gameOverBox)
 
+    gameOverBox.showModal()
+
     resetButton.addEventListener("click", resetGame)
     resetButton.addEventListener("click", () =>
-        gameOverBox.remove()
+        gameOverBox.close()
     )
 }
+
+// FUNCTION that resets game and information back to default settings
 
 function resetGame() {
     humanScore = 0
@@ -131,6 +132,3 @@ function resetGame() {
     humanResult.textContent = "❔"
     computerResult.textContent = "❔"
 }
-
-
-// ✊ ✋ ✌️

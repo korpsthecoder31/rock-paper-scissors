@@ -52,7 +52,7 @@
 #userBox {
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 204px;
     margin-bottom: 6px;
 }
 
@@ -79,7 +79,18 @@
     cursor: pointer;
 }
 
-.test {
-    background-color: red;
-    border: 5px solid black;
+dialog {
+    font-size: 50px;
+    background-color:rgb(121, 170, 109);
+    color: rgb(34,111,95);
+    padding: 32px;
+}
+
+dialog > button {
+    font-family: inherit;
+    color: rgb(34,111,95);
+    background-color: rgb(121, 170, 109);
+    border: solid 2px rgb(34,111,95);
+    padding: 16px;
+    cursor: pointer;
 }
